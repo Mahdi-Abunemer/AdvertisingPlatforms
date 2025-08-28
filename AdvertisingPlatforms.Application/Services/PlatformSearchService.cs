@@ -51,9 +51,9 @@ namespace AdvertisingPlatforms.Application.Services
             }
         }
 
-        public IReadOnlyCollection<Platform> FindByLocation(Location location)
+        public IReadOnlyCollection<Platform> FindByLocation(string rawLocation)
         {
-            if (location == null) throw new ArgumentNullException(nameof(location));
+            var location = new Location(rawLocation);
 
             var prefixes = location.GetPrefixes();
             var snapshot = _index;
@@ -68,8 +68,7 @@ namespace AdvertisingPlatforms.Application.Services
                     foreach (var p in platformsForPrefix)
                     {
                         if (p?.Name == null) continue;
-                        if (seen.Add(p.Name))
-                            result.Add(p);
+                        if (seen.Add(p.Name)) result.Add(p);
                     }
                 }
             }

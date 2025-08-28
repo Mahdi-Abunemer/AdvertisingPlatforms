@@ -17,8 +17,8 @@ namespace AdvertisingPlatforms.Application.Interfaces
         void RebuildIndex(IEnumerable<Platform> platforms);
 
         /// <summary>
-        /// Find platforms operating for the given location.
+        /// Accept raw input (string) — application handles normalization & validation.
         /// </summary>
-        IReadOnlyCollection<Platform> FindByLocation(Location location);
+        IReadOnlyCollection<Platform> FindByLocation(string rawLocation);
     }
 }
