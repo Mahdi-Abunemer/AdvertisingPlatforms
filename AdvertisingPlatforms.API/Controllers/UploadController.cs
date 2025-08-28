@@ -17,7 +17,8 @@ namespace AdvertisingPlatforms.API.Controllers
 
         [HttpPost]
         [Route("[Action]")]
-        public IActionResult UploadFile([FromForm] IFormFile file)
+        [Consumes("multipart/form-data")]
+        public IActionResult UploadFile(IFormFile file)
         {
             using var stream = file.OpenReadStream();
             _uploadService.LoadFromStream(stream);

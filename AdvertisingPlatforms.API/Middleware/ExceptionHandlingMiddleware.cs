@@ -45,9 +45,9 @@ namespace AdvertisingPlatforms.WebApi.Middleware
     }
 
     // Extension method used to add the middleware to the HTTP request pipeline.
-    public static class ExceptionHadlingMiddlewareExtensions
+    public static class ExceptionHandlingMiddlewareExtensions
     {
-        public static IApplicationBuilder UseExceptionHadlingMiddleware(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseExceptionHandlingMiddleware(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<ExceptionHandlingMiddleware>();
         }
