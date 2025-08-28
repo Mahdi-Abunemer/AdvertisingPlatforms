@@ -11,16 +11,21 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<IAdvertisingPlatformRepository, InMemoryAdvertisingPlatformRepository>();
 
+builder.Services.AddSingleton<IPlatformSearchService, PlatformSearchService>();
+
 builder.Services.AddScoped<FileUploadService>();
 
-builder.Services.AddSingleton<IPlatformSearchService, PlatformSearchService>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHadlingMiddleware();                                                                                                                
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.UseExceptionHandlingMiddleware();
 }
 
 if (!app.Environment.IsDevelopment())
