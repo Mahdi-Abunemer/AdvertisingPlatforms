@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AdvertisingPlatforms.Application\AdvertisingPlatforms.Application.csproj" />
+  </ItemGroup>
+
 </Project>
