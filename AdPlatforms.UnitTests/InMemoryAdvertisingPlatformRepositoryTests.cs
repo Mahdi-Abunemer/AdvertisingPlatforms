@@ -1,4 +1,5 @@
-﻿using AdvertisingPlatforms.Application.Services;
+﻿using AdvertisingPlatforms.Application.Interfaces;
+using AdvertisingPlatforms.Application.Services;
 using AdvertisingPlatforms.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,8 @@ namespace AdPlatforms.UnitTests
         public void ReplaceAll_ShouldStoreDataInMemory()
         {
             var repo = new InMemoryAdvertisingPlatformRepository();
-            var service = new FileUploadService(repo);
+            var _platformService = new PlatformSearchService();
+            var service = new FileUploadService(repo , _platformService);
             var content = "PlatformOne:/ru/svrd/revda\nPlatformTwo:/ru/msk,/ru/permobl";
             var stream = CreateStreamFromString(content);
 

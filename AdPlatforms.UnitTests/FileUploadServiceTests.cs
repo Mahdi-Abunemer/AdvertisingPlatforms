@@ -16,12 +16,14 @@ namespace AdvertisingPlatforms.Tests.Application
     public class FileUploadServiceTests
     {
         private readonly Mock<IAdvertisingPlatformRepository> _repositoryMock;
+        private readonly Mock<PlatformSearchService> _searchServiceMock;
         private readonly FileUploadService _service;
 
         public FileUploadServiceTests()
         {
             _repositoryMock = new Mock<IAdvertisingPlatformRepository>();
-            _service = new FileUploadService(_repositoryMock.Object);
+            _searchServiceMock = new Mock<PlatformSearchService>();
+            _service = new FileUploadService(_repositoryMock.Object , _searchServiceMock.Object);
         }
 
         private Stream CreateStreamFromString(string content)
