@@ -43,4 +43,13 @@ namespace AdvertisingPlatforms.WebApi.Middleware
             return context.Response.WriteAsJsonAsync(new { error = message });
         }
     }
+
+    // Extension method used to add the middleware to the HTTP request pipeline.
+    public static class ExceptionHadlingMiddlewareExtensions
+    {
+        public static IApplicationBuilder UseExceptionHadlingMiddleware(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<ExceptionHandlingMiddleware>();
+        }
+    }
 }

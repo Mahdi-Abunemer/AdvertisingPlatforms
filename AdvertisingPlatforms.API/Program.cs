@@ -16,9 +16,23 @@ builder.Services.AddScoped<FileUploadService>();
 var app = builder.Build();
 
 
-app.UseMiddleware<ExceptionHandlingMiddleware>();
+if (app.Environment.IsDevelopment())
+{
+    app.UseExceptionHadlingMiddleware();                                                                                                                
+}
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHsts();
+}
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
