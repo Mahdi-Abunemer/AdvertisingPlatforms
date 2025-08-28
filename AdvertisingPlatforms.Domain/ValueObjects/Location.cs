@@ -28,6 +28,9 @@ namespace AdvertisingPlatforms.Domain.ValueObjects
 
             var s = raw.Trim();
 
+            if (s.Length == 0)
+                throw new DomainValidationException("Location cannot be empty or whitespace.");
+
             s = s.Replace('\\', '/');
 
             s = MultipleSlashes.Replace(s, "/");
