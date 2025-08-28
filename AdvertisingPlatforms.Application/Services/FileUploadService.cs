@@ -4,19 +4,20 @@ using AdvertisingPlatforms.Domain.Entities;
 using AdvertisingPlatforms.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvertisingPlatforms.Application.Services
 {
     public class FileUploadService
     {
         private readonly IAdvertisingPlatformRepository _repository;
+        private readonly IPlatformSearchService _searchService;
 
-        public FileUploadService(IAdvertisingPlatformRepository repository)
+        public FileUploadService(IAdvertisingPlatformRepository repository, IPlatformSearchService searchService)
         {
-            _repository = repository;
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _searchService = searchService ?? throw new ArgumentNullException(nameof(searchService));
         }
 
         public void LoadFromStream(Stream fileStream)
@@ -60,6 +61,8 @@ namespace AdvertisingPlatforms.Application.Services
             }
 
             _repository.ReplaceAll(platforms);
+
+            _searchService.RebuildIndex(platforms);
         }
     }
 }

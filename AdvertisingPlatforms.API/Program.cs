@@ -13,6 +13,8 @@ builder.Services.AddSingleton<IAdvertisingPlatformRepository, InMemoryAdvertisin
 
 builder.Services.AddScoped<FileUploadService>();
 
+builder.Services.AddSingleton<IPlatformSearchService, PlatformSearchService>();
+
 var app = builder.Build();
 
 
