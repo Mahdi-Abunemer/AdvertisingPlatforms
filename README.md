@@ -27,15 +27,6 @@ https://github.com/Mahdi-Abunemer/AdvertisingPlatforms.git
 ✅ Visual Studio автоматически настроит проект, и Swagger будет доступен по адресу:
 https://localhost:7182/swagger
 
-
-## ⚡ Быстрый старт (TL;DR)
-```bash
-git clone https://github.com/Mahdi-Abunemer/AdvertisingPlatforms.git
-cd AdvertisingPlatforms/AdvertisingPlatforms.API
-dotnet run
-👉 Открыть: https://localhost:7182/swagger
-
-
 ##🖥 Запуск в Visual Studio
 
 Откройте AdvertisingPlatforms.sln в Visual Studio 2022.
@@ -90,6 +81,14 @@ dotnet test
 → Можно игнорировать (статические файлы не требуются для этого проекта).
 
 Проверьте, установлен ли .NET 9 SDK:
+
+## ⚡ Быстрый старт (TL;DR)
+```bash
+git clone https://github.com/Mahdi-Abunemer/AdvertisingPlatforms.git
+cd AdvertisingPlatforms/AdvertisingPlatforms.API
+dotnet run
+👉 Открыть: https://localhost:7182/swagger
+
 
 dotnet --list-sdks
 
